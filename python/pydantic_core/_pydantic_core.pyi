@@ -64,7 +64,7 @@ class SchemaValidator:
         *,
         strict: 'bool | None' = None,
         from_attributes: 'bool | None' = None,
-        context: Any = None,
+        context: 'dict[str, Any] | None' = None,
         self_instance: 'Any | None' = None,
     ) -> Any: ...
     def isinstance_python(
@@ -73,7 +73,7 @@ class SchemaValidator:
         *,
         strict: 'bool | None' = None,
         from_attributes: 'bool | None' = None,
-        context: Any = None,
+        context: 'dict[str, Any] | None' = None,
         self_instance: 'Any | None' = None,
     ) -> bool: ...
     def validate_json(
@@ -81,7 +81,7 @@ class SchemaValidator:
         input: 'str | bytes | bytearray',
         *,
         strict: 'bool | None' = None,
-        context: Any = None,
+        context: 'dict[str, Any] | None' = None,
         self_instance: 'Any | None' = None,
     ) -> Any: ...
     def validate_assignment(
@@ -92,9 +92,11 @@ class SchemaValidator:
         *,
         strict: 'bool | None' = None,
         from_attributes: 'bool | None' = None,
-        context: Any = None,
+        context: 'dict[str, Any] | None' = None,
     ) -> 'dict[str, Any]': ...
-    def get_default_value(self, *, strict: 'bool | None' = None, context: Any = None) -> Some | None: ...
+    def get_default_value(
+        self, *, strict: 'bool | None' = None, context: 'dict[str, Any] | None' = None
+    ) -> Some | None: ...
 
 _IncEx: TypeAlias = 'set[int] | set[str] | dict[int, _IncEx] | dict[str, _IncEx] | None'
 
